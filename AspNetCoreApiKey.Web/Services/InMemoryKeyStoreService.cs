@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspNetCoreApiKey.Web.Services
 {
@@ -12,14 +10,14 @@ namespace AspNetCoreApiKey.Web.Services
     {
         private static Dictionary<string, DateTime> _keyStore = new Dictionary<string, DateTime>
         {
-            { "1", new DateTime(2019,1,1) },
-            { "2", new DateTime(2020,1,1) },
-            { "3", new DateTime(2021,1,1) },
+            { "a689a999a5e62055bda8c21b1dbe92c119308def", new DateTime(2019,1,1) },
+            { "0dca48f101f6458f456df25e62cc89d83b7c467c", new DateTime(2020,6,1) },
+            { "f58ab51695b501095418ac9718da10d0c70d4b59", new DateTime(2025,1,1) },
         };
+
         public bool IsValidKey(string key)
         {
-            DateTime expiryDate;
-            return _keyStore.TryGetValue(key, out expiryDate) && expiryDate > DateTime.Now;
+            return _keyStore.TryGetValue(key, out DateTime expiryDate) && expiryDate > DateTime.Now;
         }
     }
 }
